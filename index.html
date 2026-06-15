@@ -385,17 +385,18 @@ function updateFinance(){
   renderEntries();
 }
 function showIncomeForm(){
+  if(state.vehicles.length===0){showToast('⚠️ Cadastre um veículo primeiro');return;}
   const modal=document.getElementById('modal-overlay');
   const content=document.getElementById('modal-content');
   const today=new Date().toISOString().split('T')[0];
   const hour=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   
-  let vehicleOptions='<option value="">Não vincular</option>';
+  let vehicleOptions='';
   state.vehicles.forEach(v=>{
     vehicleOptions+='<option value="'+v.id+'">'+getVehicleIcon(v.type)+' '+v.name+'</option>';
   });
   
-  content.innerHTML='<h3 class="font-bold text-lg mb-4">➕ Nova Receita</h3><div class="space-y-3"><div><label class="text-xs text-gray-500 block mb-1">📂 Tipo de Receita</label><select id="income-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm" onchange="toggleIncomeCustomName()"><option value="">Selecione...</option><option value="uber">Uber</option><option value="99">99</option><option value="indrive">InDrive</option><option value="maxim">Maxim</option><option value="particular">Particular</option><option value="delivery">Entregas</option><option value="bonus">Bonus</option><option value="promotion">Promocoes</option><option value="tip">Gorjetas</option><option value="custom">Digitar Manualmente</option><option value="other">Outros</option></select></div><div id="income-custom-name-field" class="hidden"><label class="text-xs text-gray-500 block mb-1">Nome da Receita</label><input id="income-custom-name" type="text" placeholder="Ex: Bonus Noturno" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div class="grid grid-cols-2 gap-2"><div><label class="text-xs text-gray-500 block mb-1">Data</label><input id="income-date" type="date" value="'+today+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div><label class="text-xs text-gray-500 block mb-1">Hora</label><input id="income-time" type="time" value="'+hour+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div></div><div><label class="text-xs text-gray-500 block mb-1">Valor</label><input id="income-value" type="number" step="0.01" placeholder="0.00" class="w-full border border-gray-200 rounded-lg p-2 text-sm" required></div><div><label class="text-xs text-gray-500 block mb-1">Veiculo</label><select id="income-vehicle" class="w-full border border-gray-200 rounded-lg p-2 text-sm">'+vehicleOptions+'</select></div><div><label class="text-xs text-gray-500 block mb-1">Forma de Recebimento</label><select id="income-payment" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione...</option><option value="cash">Dinheiro</option><option value="pix">Pix</option><option value="card">Cartao</option><option value="wallet">Carteira da Plataforma</option><option value="other">Outros</option></select></div><div><label class="text-xs text-gray-500 block mb-1">Categoria</label><select id="income-category" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione...</option><option value="ride">Corrida</option><option value="delivery">Entrega</option><option value="bonus">Bonus</option><option value="tip">Gorjeta</option><option value="incentive">Incentivo</option><option value="other">Outros</option></select></div><div><label class="text-xs text-gray-500 block mb-1">Observacoes</label><textarea id="income-notes" class="w-full border border-gray-200 rounded-lg p-2 text-sm" rows="2" placeholder="Opcional"></textarea></div><button onclick="saveIncome()" class="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-3 rounded-xl">Registrar Receita</button><button onclick="closeModal()" class="w-full bg-gray-100 text-gray-700 font-bold py-2 rounded-xl">Cancelar</button></div>';
+  content.innerHTML='<h3 class="font-bold text-lg mb-4">➕ Nova Receita</h3><div class="space-y-3"><div><label class="text-xs text-gray-500 block mb-1">🚗 Veículo *</label><select id="income-vehicle" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione um veículo</option>'+vehicleOptions+'</select></div><div><label class="text-xs text-gray-500 block mb-1">📂 Tipo de Receita</label><select id="income-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm" onchange="toggleIncomeCustomName()"><option value="">Selecione...</option><option value="uber">Uber</option><option value="99">99</option><option value="indrive">InDrive</option><option value="maxim">Maxim</option><option value="particular">Particular</option><option value="delivery">Entregas</option><option value="bonus">Bonus</option><option value="promotion">Promocoes</option><option value="tip">Gorjetas</option><option value="custom">Digitar Manualmente</option><option value="other">Outros</option></select></div><div id="income-custom-name-field" class="hidden"><label class="text-xs text-gray-500 block mb-1">Nome da Receita</label><input id="income-custom-name" type="text" placeholder="Ex: Bonus Noturno" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div class="grid grid-cols-2 gap-2"><div><label class="text-xs text-gray-500 block mb-1">Data</label><input id="income-date" type="date" value="'+today+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div><label class="text-xs text-gray-500 block mb-1">Hora</label><input id="income-time" type="time" value="'+hour+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div></div><div><label class="text-xs text-gray-500 block mb-1">Valor</label><input id="income-value" type="number" step="0.01" placeholder="0.00" class="w-full border border-gray-200 rounded-lg p-2 text-sm" required></div><div><label class="text-xs text-gray-500 block mb-1">Forma de Recebimento</label><select id="income-payment" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione...</option><option value="cash">Dinheiro</option><option value="pix">Pix</option><option value="card">Cartao</option><option value="wallet">Carteira da Plataforma</option><option value="other">Outros</option></select></div><div><label class="text-xs text-gray-500 block mb-1">Categoria</label><select id="income-category" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione...</option><option value="ride">Corrida</option><option value="delivery">Entrega</option><option value="bonus">Bonus</option><option value="tip">Gorjeta</option><option value="incentive">Incentivo</option><option value="other">Outros</option></select></div><div><label class="text-xs text-gray-500 block mb-1">Observacoes</label><textarea id="income-notes" class="w-full border border-gray-200 rounded-lg p-2 text-sm" rows="2" placeholder="Opcional"></textarea></div><button onclick="saveIncome()" class="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-3 rounded-xl">Registrar Receita</button><button onclick="closeModal()" class="w-full bg-gray-100 text-gray-700 font-bold py-2 rounded-xl">Cancelar</button></div>';
   modal.classList.add('active');
 }
 
@@ -416,8 +417,11 @@ function saveIncome(){
   const date=document.getElementById('income-date')?.value;
   const time=document.getElementById('income-time')?.value;
   
+  if(!vehicleId){showToast('⚠️ Selecione um veículo para continuar');return;}
   if(!type||!value||value<=0){showToast('⚠️ Preencha tipo e valor');return;}
   if(type==='custom'&&(!customName||customName.trim()==='')){showToast('⚠️ Informe o nome da receita');return;}
+  
+  const vehicle=state.vehicles.find(v=>v.id===parseInt(vehicleId));
   
   const entry={
     id:Date.now(),
@@ -425,7 +429,8 @@ function saveIncome(){
     incomeType:type,
     incomeCustomName:type==='custom'?customName:'',
     value,
-    vehicleId:vehicleId||null,
+    vehicleId:parseInt(vehicleId),
+    vehicleName:vehicle?vehicle.name:'',
     paymentMethod:payment,
     category,
     notes,
@@ -438,17 +443,18 @@ function saveIncome(){
 }
 
 function showExpenseForm(){
+  if(state.vehicles.length===0){showToast('⚠️ Cadastre um veículo primeiro');return;}
   const modal=document.getElementById('modal-overlay');
   const content=document.getElementById('modal-content');
   const today=new Date().toISOString().split('T')[0];
   const hour=new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
   
-  let vehicleOptions='<option value="">Não vincular</option>';
+  let vehicleOptions='';
   state.vehicles.forEach(v=>{
     vehicleOptions+='<option value="'+v.id+'">'+getVehicleIcon(v.type)+' '+v.name+'</option>';
   });
   
-  content.innerHTML='<h3 class="font-bold text-lg mb-4">➖ Nova Despesa</h3><div class="space-y-3"><div><label class="text-xs text-gray-500 block mb-1">Tipo de Despesa</label><select id="expense-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm" onchange="toggleExpenseCustomName();updateOperationalStatus()"><option value="">Selecione...</option><option value="fuel">Combustivel</option><option value="oil">Troca de Oleo</option><option value="maintenance">Manutencao</option><option value="tires">Pneus</option><option value="wash">Lavagem</option><option value="parking">Estacionamento</option><option value="toll">Pedagio</option><option value="internet">Internet</option><option value="food">Alimentacao</option><option value="installment">Parcelas</option><option value="insurance">Seguro</option><option value="licensing">Licenciamento</option><option value="battery">Bateria</option><option value="custom">Digitar Manualmente</option><option value="other">Outros</option></select></div><div id="expense-custom-name-field" class="hidden"><label class="text-xs text-gray-500 block mb-1">Nome da Despesa</label><input id="expense-custom-name" type="text" placeholder="Ex: Reparo de Vidro" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div class="grid grid-cols-2 gap-2"><div><label class="text-xs text-gray-500 block mb-1">Data</label><input id="expense-date" type="date" value="'+today+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div><label class="text-xs text-gray-500 block mb-1">Hora</label><input id="expense-time" type="time" value="'+hour+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div></div><div><label class="text-xs text-gray-500 block mb-1">Valor</label><input id="expense-value" type="number" step="0.01" placeholder="0.00" class="w-full border border-gray-200 rounded-lg p-2 text-sm" required></div><div><label class="text-xs text-gray-500 block mb-1">Veiculo</label><select id="expense-vehicle" class="w-full border border-gray-200 rounded-lg p-2 text-sm">'+vehicleOptions+'</select></div><div><label class="text-xs text-gray-500 block mb-1">Forma de Pagamento</label><select id="expense-payment" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione...</option><option value="cash">Dinheiro</option><option value="pix">Pix</option><option value="debit">Debito</option><option value="credit">Credito</option><option value="other">Outros</option></select></div><div><label class="text-xs text-gray-500 block mb-1">Custo Operacional?</label><div class="flex gap-3"><label class="flex items-center gap-2 text-sm"><input id="expense-operational-yes" type="radio" name="operational" value="yes"> Sim</label><label class="flex items-center gap-2 text-sm"><input id="expense-operational-no" type="radio" name="operational" value="no"> Nao</label></div></div><div><label class="text-xs text-gray-500 block mb-1">Comprovante (opcional)</label><input id="expense-receipt" type="file" accept="image/*" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div><label class="text-xs text-gray-500 block mb-1">Observacoes</label><textarea id="expense-notes" class="w-full border border-gray-200 rounded-lg p-2 text-sm" rows="2" placeholder="Opcional"></textarea></div><button onclick="saveExpense()" class="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-3 rounded-xl">Registrar Despesa</button><button onclick="closeModal()" class="w-full bg-gray-100 text-gray-700 font-bold py-2 rounded-xl">Cancelar</button></div>';
+  content.innerHTML='<h3 class="font-bold text-lg mb-4">➖ Nova Despesa</h3><div class="space-y-3"><div><label class="text-xs text-gray-500 block mb-1">🚗 Veículo *</label><select id="expense-vehicle" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione um veículo</option>'+vehicleOptions+'</select></div><div><label class="text-xs text-gray-500 block mb-1">Tipo de Despesa</label><select id="expense-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm" onchange="toggleExpenseCustomName();updateOperationalStatus()"><option value="">Selecione...</option><option value="fuel">Combustivel</option><option value="oil">Troca de Oleo</option><option value="maintenance">Manutencao</option><option value="tires">Pneus</option><option value="wash">Lavagem</option><option value="parking">Estacionamento</option><option value="toll">Pedagio</option><option value="internet">Internet</option><option value="food">Alimentacao</option><option value="installment">Parcelas</option><option value="insurance">Seguro</option><option value="licensing">Licenciamento</option><option value="battery">Bateria</option><option value="custom">Digitar Manualmente</option><option value="other">Outros</option></select></div><div id="expense-custom-name-field" class="hidden"><label class="text-xs text-gray-500 block mb-1">Nome da Despesa</label><input id="expense-custom-name" type="text" placeholder="Ex: Reparo de Vidro" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div class="grid grid-cols-2 gap-2"><div><label class="text-xs text-gray-500 block mb-1">Data</label><input id="expense-date" type="date" value="'+today+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div><label class="text-xs text-gray-500 block mb-1">Hora</label><input id="expense-time" type="time" value="'+hour+'" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div></div><div><label class="text-xs text-gray-500 block mb-1">Valor</label><input id="expense-value" type="number" step="0.01" placeholder="0.00" class="w-full border border-gray-200 rounded-lg p-2 text-sm" required></div><div><label class="text-xs text-gray-500 block mb-1">Forma de Pagamento</label><select id="expense-payment" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="">Selecione...</option><option value="cash">Dinheiro</option><option value="pix">Pix</option><option value="debit">Debito</option><option value="credit">Credito</option><option value="other">Outros</option></select></div><div><label class="text-xs text-gray-500 block mb-1">Custo Operacional?</label><div class="flex gap-3"><label class="flex items-center gap-2 text-sm"><input id="expense-operational-yes" type="radio" name="operational" value="yes"> Sim</label><label class="flex items-center gap-2 text-sm"><input id="expense-operational-no" type="radio" name="operational" value="no"> Nao</label></div></div><div><label class="text-xs text-gray-500 block mb-1">Comprovante (opcional)</label><input id="expense-receipt" type="file" accept="image/*" class="w-full border border-gray-200 rounded-lg p-2 text-sm"></div><div><label class="text-xs text-gray-500 block mb-1">Observacoes</label><textarea id="expense-notes" class="w-full border border-gray-200 rounded-lg p-2 text-sm" rows="2" placeholder="Opcional"></textarea></div><button onclick="saveExpense()" class="w-full bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-3 rounded-xl">Registrar Despesa</button><button onclick="closeModal()" class="w-full bg-gray-100 text-gray-700 font-bold py-2 rounded-xl">Cancelar</button></div>';
   modal.classList.add('active');
   updateOperationalStatus();
 }
@@ -482,9 +488,12 @@ function saveExpense(){
   const date=document.getElementById('expense-date')?.value;
   const time=document.getElementById('expense-time')?.value;
   
+  if(!vehicleId){showToast('⚠️ Selecione um veículo para continuar');return;}
   if(!type||!value||value<=0){showToast('⚠️ Preencha tipo e valor');return;}
   if(type==='custom'&&(!customName||customName.trim()==='')){showToast('⚠️ Informe o nome da despesa');return;}
   if(!operational){showToast('⚠️ Selecione se é custo operacional');return;}
+  
+  const vehicle=state.vehicles.find(v=>v.id===parseInt(vehicleId));
   
   let receiptData='';
   const fileInput=document.getElementById('expense-receipt');
@@ -493,22 +502,23 @@ function saveExpense(){
     const reader=new FileReader();
     reader.onload=(e)=>{
       receiptData=e.target.result;
-      createExpenseRecord(type,customName,value,vehicleId,payment,operational,notes,date,time,receiptData);
+      createExpenseRecord(type,customName,value,vehicleId,payment,operational,notes,date,time,receiptData,vehicle);
     };
     reader.readAsDataURL(file);
   }else{
-    createExpenseRecord(type,customName,value,vehicleId,payment,operational,notes,date,time,'');
+    createExpenseRecord(type,customName,value,vehicleId,payment,operational,notes,date,time,'',vehicle);
   }
 }
 
-function createExpenseRecord(type,customName,value,vehicleId,payment,operational,notes,date,time,receiptData){
+function createExpenseRecord(type,customName,value,vehicleId,payment,operational,notes,date,time,receiptData,vehicle){
   const entry={
     id:Date.now(),
     type:'expense',
     expenseType:type,
     expenseCustomName:type==='custom'?customName:'',
     value,
-    vehicleId:vehicleId||null,
+    vehicleId:parseInt(vehicleId),
+    vehicleName:vehicle?vehicle.name:'',
     paymentMethod:payment,
     isOperational:operational==='yes',
     receipt:receiptData,
@@ -1222,8 +1232,12 @@ function generateVehiclePdfSection(vehicle,from,to){
   const fuelRecs=filteredVRecs.filter(r=>r.category==='fuel');
   const maintenanceRecs=filteredVRecs.filter(r=>r.category!=='fuel');
   
-  const earnings=filteredEntries.filter(e=>e.type==='earning').reduce((s,e)=>s+e.value,0)+filteredDailyReports.reduce((s,r)=>s+r.earnings,0);
-  const expenses=filteredEntries.filter(e=>e.type==='expense').reduce((s,e)=>s+e.value,0)+filteredDailyReports.reduce((s,r)=>s+r.expenses,0);
+  // Finance entries breakdown
+  const financeEarnings=filteredEntries.filter(e=>e.type==='earning').reduce((s,e)=>s+e.value,0);
+  const financeExpenses=filteredEntries.filter(e=>e.type==='expense').reduce((s,e)=>s+e.value,0);
+  
+  const earnings=financeEarnings+filteredDailyReports.reduce((s,r)=>s+r.earnings,0);
+  const expenses=financeExpenses+filteredDailyReports.reduce((s,r)=>s+r.expenses,0);
   const fuelCost=filteredEntries.filter(e=>e.type==='expense'&&e.expenseType==='fuel').reduce((s,e)=>s+e.value,0)+fuelRecs.reduce((s,r)=>s+r.value,0);
   
   const fuelLiters=fuelRecs.reduce((s,r)=>s+r.liters,0);
@@ -1305,11 +1319,11 @@ function generateVehiclePdfSection(vehicle,from,to){
     </div>
     
     <div class="section">
-      <h3>💵 Receitas</h3>
+      <h3>💵 Receitas (Finanças)</h3>
       ${filteredEntries.filter(e=>e.type==='earning').length>0?`
       <div class="summary-card">
         <div class="field-label">Total de Receitas</div>
-        <div class="value positive">R$ ${filteredEntries.filter(e=>e.type==='earning').reduce((s,e)=>s+e.value,0).toFixed(2)}</div>
+        <div class="value positive">R$ ${financeEarnings.toFixed(2)}</div>
       </div>
       <table>
         <tr><th>Data</th><th>Tipo</th><th>Descrição</th><th>Valor</th></tr>
@@ -1323,11 +1337,11 @@ function generateVehiclePdfSection(vehicle,from,to){
     </div>
     
     <div class="section">
-      <h3>💸 Despesas</h3>
+      <h3>💸 Despesas (Finanças)</h3>
       ${filteredEntries.filter(e=>e.type==='expense').length>0?`
       <div class="summary-card">
         <div class="field-label">Total de Despesas</div>
-        <div class="value negative">R$ ${filteredEntries.filter(e=>e.type==='expense').reduce((s,e)=>s+e.value,0).toFixed(2)}</div>
+        <div class="value negative">R$ ${financeExpenses.toFixed(2)}</div>
       </div>
       <table>
         <tr><th>Data</th><th>Tipo</th><th>Descrição</th><th>Valor</th></tr>
@@ -1369,6 +1383,7 @@ function generateVehiclePdfSection(vehicle,from,to){
   html+=`</div>`;
   return html;
 }
+
 
 function generateConsolidatedPdfSummary(vehicles,from,to){
   let totalEarnings=0,totalExpenses=0,totalFuelSpent=0,totalKm=0,totalWorkHours=0;
@@ -1559,13 +1574,13 @@ function renderReports(){
     }
   });
   
-  // Entries (earnings/expenses)
+  // Finance Entries (earnings/expenses)
   state.entries.filter(e=>e.vehicleId===rptSelectedVehicle).forEach(e=>{
-    const d=new Date(e.date);
+    const d=new Date(e.dateISO||e.date);
     if(d>=from&&d<to){
       const t=e.type==='earning'?'earning':'expense';
-      const label=e.type==='earning'?'💰 Entrada':e.type==='fuel'?'⛽ Combustível':'💸 Saída';
-      allRecords.push({...e,_type:t,_date:d,_label:label,_value:e.value,_searchText:`${e.date} ${e.desc||''} ${e.type} ${e.value}`});
+      const label=e.type==='earning'?'💰 Entrada':'💸 Saída';
+      allRecords.push({...e,_type:t,_date:d,_label:label,_value:e.value,_searchText:`${e.dateISO||e.date} ${e.incomeType||e.expenseType||''} ${e.incomeCustomName||e.expenseCustomName||''} ${e.value}`});
     }
   });
 
@@ -1593,7 +1608,7 @@ function renderReports(){
     const isEarning=r._type==='earning'||r._type==='workday';
     return`<div class="bg-white rounded-xl p-3 shadow-sm">
       <div class="flex justify-between items-start mb-2">
-        <div><p class="text-sm font-semibold text-gray-800">${r._label}</p><p class="text-xs text-gray-400">${dateStr}${r.desc?' • '+r.desc:''}</p></div>
+        <div><p class="text-sm font-semibold text-gray-800">${r._label}</p><p class="text-xs text-gray-400">${dateStr}${r.desc?' • '+r.desc:r.incomeCustomName?' • '+r.incomeCustomName:r.expenseCustomName?' • '+r.expenseCustomName:''}</p></div>
         <span class="font-bold text-sm ${isEarning?'text-green-600':'text-red-500'}">R$ ${(r._value||0).toFixed(2)}</span>
       </div>
       <div class="flex gap-2">
@@ -2227,5 +2242,5 @@ document.getElementById('work-btn').addEventListener('pointerleave',()=>clearTim
 
 init();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0c21f6d720f6f86',t:'MTc4MTUzMjI1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0c24a6641d66f86',t:'MTc4MTUzNDAxNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
