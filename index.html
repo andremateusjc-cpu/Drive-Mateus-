@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="pt-BR">
- <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260701-05-1ec4861"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260702-05-84893f2"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Drive Mateus</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <script src="/_sdk/a57e1ce6823cfcdc.editing_sdk.js" integrity="sha512-kNK9Lfxs3JxWT717gHDYE+wlveaAj/VZXdy7sZdJAoa7Ps3DhgunLxr4od2Pr1ZqeSpJV2bST0X2ZhdP0AnInQ=="></script>
+  <script src="/_sdk/6740099151a06780.editing_sdk.js" integrity="sha512-eSc5OWFJjK6fUpxViOKXm5ekJ3Gp5icgygsjPVz9Xzudb9TkX/uNdpqNHc63uN0PdxYE9+g8pZAHIib0FgE0Cw=="></script>
   <style>
     *{font-family:'DM Sans',sans-serif;-webkit-tap-highlight-color:transparent}
     body{overscroll-behavior:none}
@@ -38,8 +38,7 @@
   <script src="/_sdk/0179d719c431a79e.data_sdk.js" integrity="sha512-OsRvJkI5GkC3MJQcgotQYotpzrMSX415GiKKgvYdxQEEkzD/fdchShO2FMSy0PJr/tiINMXOk5Vl2zAgg6bUiA=="></script>
   <script src="/_sdk/0b3af1c300e720aa.resizing_sdk.js" type="text/javascript" integrity="sha512-nX1P6oXZmEY5wCI2lUVg3BwKu1cr0yi+ZpXgZ0Yn90vkSwvpmyzBMvOyD6VLJUtBwFI2dSrw1b6OvORxSggw3w=="></script>
  </head>
- <body data-template-id="__page-root" class="w-full min-h-screen bg-gray-50 pb-20">
-  <!-- Splash -->
+ <body data-template-id="__page-root" class="w-full min-h-screen bg-gray-50 pb-20"><!-- Splash -->
   <div id="splash" class="splash fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 to-green-400">
    <div class="text-6xl mb-4">
     🚗
@@ -105,15 +104,13 @@
      <p id="fin-fuel" class="text-xl font-bold text-yellow-600 mt-1">R$ 0</p>
     </div>
    </div>
-   <section class="text-center my-6">
-    <button id="work-btn" class="work-btn w-36 h-36 rounded-full bg-gradient-to-br from-blue-500 to-green-400 text-white text-lg font-bold shadow-lg mx-auto flex flex-col items-center justify-center gap-1 border-4 border-white" onclick="handleWorkBtn()"><span class="text-3xl">🚗</span><span id="work-btn-label">Iniciar</span></button>
+   <section class="text-center my-6"><button id="work-btn" class="work-btn w-36 h-36 rounded-full bg-gradient-to-br from-blue-500 to-green-400 text-white text-lg font-bold shadow-lg mx-auto flex flex-col items-center justify-center gap-1 border-4 border-white" onclick="handleWorkBtn()"><span class="text-3xl">🚗</span><span id="work-btn-label">Iniciar</span></button>
     <p id="work-timer" class="text-2xl font-bold text-gray-700 mt-4 font-mono">00:00:00</p>
     <p id="work-status" class="text-sm text-gray-500 mt-1"></p>
     <p id="work-vehicle-info" class="text-xs text-blue-600 mt-1"></p>
    </section>
    <div id="pause-menu" class="hidden mb-6">
-    <div class="grid grid-cols-3 gap-2 mb-3">
-     <button onclick="pauseWork('almoço')" class="bg-white rounded-xl p-3 shadow-sm text-center text-sm">🍽️<br>
+    <div class="grid grid-cols-3 gap-2 mb-3"><button onclick="pauseWork('almoço')" class="bg-white rounded-xl p-3 shadow-sm text-center text-sm">🍽️<br>
        Almoço</button> <button onclick="pauseWork('café')" class="bg-white rounded-xl p-3 shadow-sm text-center text-sm">☕<br>
        Café</button> <button onclick="pauseWork('combustível')" class="bg-white rounded-xl p-3 shadow-sm text-center text-sm">⛽<br>
        Combustível</button> <button onclick="pauseWork('descanso')" class="bg-white rounded-xl p-3 shadow-sm text-center text-sm">😴<br>
@@ -123,13 +120,11 @@
     </div>
     <div class="bg-white rounded-2xl p-4 shadow-sm">
      <h3 class="font-bold text-gray-800 mb-3">Registrar durante pausa</h3>
-     <div class="grid grid-cols-2 gap-2 mb-3">
-      <select id="pause-entry-type" class="rounded-xl border border-gray-200 p-2 text-sm"><option value="earning">💰 Receita</option><option value="expense">💸 Despesa</option></select> <input id="pause-entry-value" type="number" step="0.01" placeholder="Valor" class="rounded-xl border border-gray-200 p-2 text-sm">
+     <div class="grid grid-cols-2 gap-2 mb-3"><select id="pause-entry-type" class="rounded-xl border border-gray-200 p-2 text-sm"><option value="earning">💰 Receita</option><option value="expense">💸 Despesa</option></select> <input id="pause-entry-value" type="number" step="0.01" placeholder="Valor" class="rounded-xl border border-gray-200 p-2 text-sm">
      </div><input id="pause-entry-desc" type="text" placeholder="Descrição" class="w-full rounded-xl border border-gray-200 p-2 text-sm mb-3"> <button onclick="addPauseEntry()" class="w-full bg-blue-500 text-white font-bold py-2 rounded-xl text-sm mb-2">Registrar</button> <button onclick="hidePauseMenu()" class="w-full bg-gray-100 text-gray-700 font-bold py-2 rounded-xl text-sm">Retornar</button>
     </div>
    </div>
-   <div id="end-day-section" class="hidden text-center mb-6">
-    <button onclick="showEndDayConfirm()" class="w-48 py-3 rounded-xl bg-gradient-to-r from-red-500 to-orange-500 text-white text-lg font-bold shadow-lg mx-auto">🛑 Finalizar Dia</button>
+   <div id="end-day-section" class="hidden text-center mb-6"><button onclick="showEndDayConfirm()" class="w-48 py-3 rounded-xl bg-gradient-to-r from-red-500 to-orange-500 text-white text-lg font-bold shadow-lg mx-auto">🛑 Finalizar Dia</button>
    </div>
   </div><!-- Vehicle View -->
   <div id="view-vehicle" class="view px-4 pt-6">
@@ -138,8 +133,7 @@
     <div id="vehicle-list" class="space-y-3 mb-4"></div><button onclick="showVehicleForm()" class="w-full bg-gradient-to-r from-blue-500 to-green-400 text-white font-bold py-3 rounded-xl">➕ Cadastrar Novo Veículo</button>
    </div><button id="fab-quick-actions" onclick="toggleQuickActionsMenu()" class="fixed bottom-28 right-4 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-green-400 text-white shadow-lg flex items-center justify-center text-2xl" title="Ações Rápidas">⛽</button>
    <div id="quick-actions-menu" class="hidden fixed bottom-44 right-4 z-40 bg-white rounded-2xl shadow-xl overflow-hidden">
-    <div class="flex flex-col min-w-max">
-     <button onclick="openQuickFuelForm()" class="px-4 py-3 text-left hover:bg-blue-50 text-sm font-medium flex items-center gap-2">⛽ Abastecimento</button> <button onclick="openQuickMaintenanceForm()" class="px-4 py-3 text-left hover:bg-blue-50 text-sm font-medium flex items-center gap-2">🔧 Manutenção</button> <button onclick="openRemindersView()" class="px-4 py-3 text-left hover:bg-blue-50 text-sm font-medium flex items-center gap-2">🔔 Lembretes</button>
+    <div class="flex flex-col min-w-max"><button onclick="openQuickFuelForm()" class="px-4 py-3 text-left hover:bg-blue-50 text-sm font-medium flex items-center gap-2">⛽ Abastecimento</button> <button onclick="openQuickMaintenanceForm()" class="px-4 py-3 text-left hover:bg-blue-50 text-sm font-medium flex items-center gap-2">🔧 Manutenção</button> <button onclick="openRemindersView()" class="px-4 py-3 text-left hover:bg-blue-50 text-sm font-medium flex items-center gap-2">🔔 Lembretes</button>
     </div>
    </div>
    <div id="vehicle-form-section" class="hidden">
@@ -147,55 +141,63 @@
      <h3 class="font-bold text-gray-800 mb-3">📝 Dados do Veículo</h3>
      <div class="space-y-3">
       <div class="grid grid-cols-2 gap-2">
-       <div><label class="text-xs text-gray-500">Tipo</label><select id="v-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="carro">Carro</option><option value="moto">Moto</option><option value="suv">SUV</option></select>
+       <div>
+        <label class="text-xs text-gray-500">Tipo</label><select id="v-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="carro">Carro</option><option value="moto">Moto</option><option value="suv">SUV</option></select>
        </div>
-       <div><label class="text-xs text-gray-500">Nome</label><input id="v-name" type="text" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="Ex: Meu Onix">
-       </div>
-      </div>
-      <div class="grid grid-cols-2 gap-2">
-       <div><label class="text-xs text-gray-500">Marca</label><input id="v-brand" type="text" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="Chevrolet">
-       </div>
-       <div><label class="text-xs text-gray-500">Ano</label><input id="v-year" type="number" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="2022">
+       <div>
+        <label class="text-xs text-gray-500">Nome</label><input id="v-name" type="text" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="Ex: Meu Onix">
        </div>
       </div>
       <div class="grid grid-cols-2 gap-2">
-       <div><label class="text-xs text-gray-500">Combustível</label><select id="v-fuel-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="flex">Flex</option><option value="gasolina">Gasolina</option><option value="etanol">Etanol</option><option value="diesel">Diesel</option><option value="gnv">GNV</option></select>
+       <div>
+        <label class="text-xs text-gray-500">Marca</label><input id="v-brand" type="text" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="Chevrolet">
        </div>
-       <div><label class="text-xs text-gray-500">KM Atual</label><input id="v-km" type="number" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="0">
+       <div>
+        <label class="text-xs text-gray-500">Ano</label><input id="v-year" type="number" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="2022">
        </div>
       </div>
       <div class="grid grid-cols-2 gap-2">
-       <div><label class="text-xs text-gray-500">KM Próx. Óleo</label><input id="v-oil-km" type="number" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="0">
+       <div>
+        <label class="text-xs text-gray-500">Combustível</label><select id="v-fuel-type" class="w-full border border-gray-200 rounded-lg p-2 text-sm"><option value="flex">Flex</option><option value="gasolina">Gasolina</option><option value="etanol">Etanol</option><option value="diesel">Diesel</option><option value="gnv">GNV</option></select>
+       </div>
+       <div>
+        <label class="text-xs text-gray-500">KM Atual</label><input id="v-km" type="number" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="0">
        </div>
       </div>
-      <div><label class="text-xs text-gray-500">🔧 Reserva Operacional</label><input id="v-cost-km" type="number" step="0.01" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="0.10" min="0">
+      <div class="grid grid-cols-2 gap-2">
+       <div>
+        <label class="text-xs text-gray-500">KM Próx. Óleo</label><input id="v-oil-km" type="number" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="0">
+       </div>
+      </div>
+      <div>
+       <label class="text-xs text-gray-500">🔧 Reserva Operacional</label><input id="v-cost-km" type="number" step="0.01" class="w-full border border-gray-200 rounded-lg p-2 text-sm" placeholder="0.10" min="0">
        <p class="text-xs text-gray-400 mt-1">Fator para cálculo de manutenção</p>
       </div>
-      <div><label class="text-xs text-gray-500">Observações</label><textarea id="v-notes" class="w-full border border-gray-200 rounded-lg p-2 text-sm" rows="2"></textarea>
+      <div>
+       <label class="text-xs text-gray-500">Observações</label><textarea id="v-notes" class="w-full border border-gray-200 rounded-lg p-2 text-sm" rows="2"></textarea>
       </div><button onclick="handleSaveVehicle()" class="w-full bg-gradient-to-r from-blue-500 to-green-400 text-white font-bold py-3 rounded-xl">💾 Salvar Alterações</button> <button onclick="hideVehicleForm()" class="w-full bg-gray-100 text-gray-700 font-bold py-2 rounded-xl">Cancelar</button>
      </div>
     </div>
    </div>
-   <div id="vehicle-detail-section" class="hidden">
-    <button onclick="backToVehicleList()" class="text-blue-600 font-medium mb-4 text-sm">← Voltar para lista</button>
+   <div id="vehicle-detail-section" class="hidden"><button onclick="backToVehicleList()" class="text-blue-600 font-medium mb-4 text-sm">← Voltar para lista</button>
     <div id="vehicle-detail-content"></div>
    </div>
   </div><!-- Reminders View -->
-  <div id="reminders-section" class="hidden px-4 pt-6 pb-24">
-   <button onclick="backToVehicleList()" class="text-blue-600 font-medium mb-4 text-sm">← Voltar para lista</button>
-   <div class="flex gap-2 mb-4"><button onclick="showReminderForm()" class="flex-1 bg-gradient-to-r from-blue-500 to-green-400 text-white font-bold py-2 rounded-xl text-sm">🔔 Novo Lembrete</button>
+  <div id="reminders-section" class="hidden px-4 pt-6 pb-24"><button onclick="backToVehicleList()" class="text-blue-600 font-medium mb-4 text-sm">← Voltar para lista</button>
+   <div class="flex gap-2 mb-4">
+    <button onclick="showReminderForm()" class="flex-1 bg-gradient-to-r from-blue-500 to-green-400 text-white font-bold py-2 rounded-xl text-sm">🔔 Novo Lembrete</button>
    </div>
    <div id="reminders-list" class="space-y-3"></div>
   </div><!-- Finance View -->
   <div id="view-finance" class="view px-4 pt-6">
    <h2 class="text-2xl font-bold text-gray-800 mb-4">💰 Finanças</h2>
-   <div class="grid grid-cols-2 gap-3 mb-4"><button onclick="showIncomeForm()" class="bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-3 rounded-xl">💰 Nova Receita</button> <button onclick="showExpenseForm()" class="bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-3 rounded-xl">📉 Nova Despesa</button>
+   <div class="grid grid-cols-2 gap-3 mb-4">
+    <button onclick="showIncomeForm()" class="bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold py-3 rounded-xl">💰 Nova Receita</button> <button onclick="showExpenseForm()" class="bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-3 rounded-xl">📉 Nova Despesa</button>
    </div>
    <div id="entries-list" class="space-y-2"></div>
   </div><!-- PDF Viewer -->
   <div id="pdf-viewer-container" class="hidden fixed inset-0 z-50 bg-white flex flex-col">
-   <div class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-md flex items-center justify-between px-4 py-3 gap-2">
-    <button onclick="closePdfViewer()" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200">⬅️ Voltar</button>
+   <div class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-md flex items-center justify-between px-4 py-3 gap-2"><button onclick="closePdfViewer()" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium text-sm hover:bg-gray-200">⬅️ Voltar</button>
     <div class="flex-1"></div><button onclick="printPdfReport()" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-500 text-white font-medium text-sm hover:bg-blue-600">🖨️ Imprimir</button> <button onclick="sharePdfReport()" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-green-500 text-white font-medium text-sm hover:bg-green-600">📤 Compartilhar</button> <button onclick="savePdfReport()" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-500 text-white font-medium text-sm hover:bg-purple-600">💾 Salvar</button>
    </div>
    <div id="pdf-viewer-content" class="flex-1 overflow-auto pt-16 pb-4 px-2"></div>
@@ -206,19 +208,14 @@
     <p class="text-sm text-gray-600 font-medium mb-2">Selecione um veículo:</p>
     <div id="rpt-vehicles" class="flex gap-2 overflow-x-auto pb-2"></div>
    </div><!-- PDF Generation Button --> <button onclick="showPdfGenerationModal()" class="w-full mb-4 py-3 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white text-lg font-bold shadow-lg">📄 Gerar Relatório PDF</button><!-- Filters & Search (hidden until vehicle selected) -->
-   <div id="rpt-controls" class="hidden space-y-3 mb-4">
-    <!-- Search -->
-    <div class="relative">
-     <input id="rpt-search" type="text" placeholder="Pesquisar por data, descrição, valor..." class="w-full bg-white border border-gray-200 rounded-xl p-3 pl-10 text-sm shadow-sm" oninput="renderReports()"> <span class="absolute left-3 top-3.5 text-gray-400 text-sm">🔍</span>
+   <div id="rpt-controls" class="hidden space-y-3 mb-4"><!-- Search -->
+    <div class="relative"><input id="rpt-search" type="text" placeholder="Pesquisar por data, descrição, valor..." class="w-full bg-white border border-gray-200 rounded-xl p-3 pl-10 text-sm shadow-sm" oninput="renderReports()"> <span class="absolute left-3 top-3.5 text-gray-400 text-sm">🔍</span>
     </div><!-- Period Filters -->
-    <div class="flex gap-2 flex-wrap">
-     <button class="filter-btn active text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="month" onclick="setReportPeriod(this)">Mês Atual</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="today" onclick="setReportPeriod(this)">Hoje</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="yesterday" onclick="setReportPeriod(this)">Ontem</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="week" onclick="setReportPeriod(this)">7 dias</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="30days" onclick="setReportPeriod(this)">30 dias</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="lastmonth" onclick="setReportPeriod(this)">Mês Anterior</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="custom" onclick="showCustomDateFilter()">Personalizado</button>
+    <div class="flex gap-2 flex-wrap"><button class="filter-btn active text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="month" onclick="setReportPeriod(this)">Mês Atual</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="today" onclick="setReportPeriod(this)">Hoje</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="yesterday" onclick="setReportPeriod(this)">Ontem</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="week" onclick="setReportPeriod(this)">7 dias</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="30days" onclick="setReportPeriod(this)">30 dias</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="lastmonth" onclick="setReportPeriod(this)">Mês Anterior</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="custom" onclick="showCustomDateFilter()">Personalizado</button>
     </div><!-- Custom date (hidden) -->
-    <div id="rpt-custom-dates" class="hidden grid grid-cols-2 gap-2">
-     <input id="rpt-date-from" type="date" class="border border-gray-200 rounded-lg p-2 text-sm" onchange="renderReports()"> <input id="rpt-date-to" type="date" class="border border-gray-200 rounded-lg p-2 text-sm" onchange="renderReports()">
+    <div id="rpt-custom-dates" class="hidden grid grid-cols-2 gap-2"><input id="rpt-date-from" type="date" class="border border-gray-200 rounded-lg p-2 text-sm" onchange="renderReports()"> <input id="rpt-date-to" type="date" class="border border-gray-200 rounded-lg p-2 text-sm" onchange="renderReports()">
     </div><!-- Category filter -->
-    <div class="flex gap-2 flex-wrap">
-     <button class="filter-btn active text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="all" onclick="setReportCat(this)">Todos</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="workday" onclick="setReportCat(this)">📅 Dias</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="fuel" onclick="setReportCat(this)">⛽ Abastecimentos</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="maintenance" onclick="setReportCat(this)">🔧 Manutenções</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="earning" onclick="setReportCat(this)">💰 Entradas</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="expense" onclick="setReportCat(this)">💸 Saídas</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="reserve" onclick="setReportCat(this)">🏦 Reserva</button>
+    <div class="flex gap-2 flex-wrap"><button class="filter-btn active text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="all" onclick="setReportCat(this)">Todos</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="workday" onclick="setReportCat(this)">📅 Dias</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="fuel" onclick="setReportCat(this)">⛽ Abastecimentos</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="maintenance" onclick="setReportCat(this)">🔧 Manutenções</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="earning" onclick="setReportCat(this)">💰 Entradas</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="expense" onclick="setReportCat(this)">💸 Saídas</button> <button class="filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-cat="reserve" onclick="setReportCat(this)">🏦 Reserva</button>
     </div>
    </div><!-- Records List -->
    <div id="rpt-records" class="space-y-2 pb-4"></div>
@@ -229,18 +226,21 @@
    </header><!-- Active Trip Section -->
    <div id="viagens-active-section">
     <section data-template-id="viagem-active-card" class="canva-card bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-5 shadow-sm mb-4 border-2 border-green-200">
-     <div class="flex items-center gap-2 mb-3">
-      <span class="text-lg">🟢</span>
+     <div class="flex items-center gap-2 mb-3"><span class="text-lg">🟢</span>
       <h3 data-template-id="viagem-status-title" class="canva-text font-bold text-gray-800"></h3>
      </div>
      <div class="space-y-2 mb-4 text-sm">
-      <div class="flex justify-between"><span class="text-gray-600">🚗 Veículo:</span><span id="viagem-active-vehicle" class="font-medium text-gray-800">--</span>
+      <div class="flex justify-between">
+       <span class="text-gray-600">🚗 Veículo:</span><span id="viagem-active-vehicle" class="font-medium text-gray-800">--</span>
       </div>
-      <div class="flex justify-between"><span class="text-gray-600">📍 Origem:</span><span id="viagem-active-origin" class="font-medium text-gray-800">--</span>
+      <div class="flex justify-between">
+       <span class="text-gray-600">📍 Origem:</span><span id="viagem-active-origin" class="font-medium text-gray-800">--</span>
       </div>
-      <div class="flex justify-between"><span class="text-gray-600">📍 KM Inicial:</span><span id="viagem-active-km-start" class="font-medium text-gray-800">--</span>
+      <div class="flex justify-between">
+       <span class="text-gray-600">📍 KM Inicial:</span><span id="viagem-active-km-start" class="font-medium text-gray-800">--</span>
       </div>
-      <div class="flex justify-between"><span class="text-gray-600">📅 Início:</span><span id="viagem-active-start-time" class="font-medium text-gray-800">--</span>
+      <div class="flex justify-between">
+       <span class="text-gray-600">📅 Início:</span><span id="viagem-active-start-time" class="font-medium text-gray-800">--</span>
       </div>
      </div>
      <div class="text-center bg-white rounded-xl p-3 mb-4">
@@ -248,8 +248,7 @@
      </div><button onclick="showEndTripForm()" class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-3 rounded-xl">🏁 Finalizar Viagem</button>
     </section>
    </div><!-- No Active Trip Section -->
-   <div id="viagens-no-active-section" class="hidden">
-    <!-- Summary Cards -->
+   <div id="viagens-no-active-section" class="hidden"><!-- Summary Cards -->
     <div class="grid grid-cols-2 gap-3 mb-4">
      <div data-template-id="viagem-card-trips" class="canva-card bg-white rounded-2xl p-4 shadow-sm">
       <p class="text-xs text-gray-500">📊 Viagens</p>
@@ -270,8 +269,7 @@
     </div><!-- Start Trip Button --> <button onclick="showViagemVehicleSelection()" class="w-full mb-4 py-4 rounded-2xl bg-gradient-to-br from-blue-500 to-green-400 text-white text-lg font-bold shadow-lg">▶️ Iniciar Viagem</button> <!-- Filters -->
     <div class="space-y-3 mb-4">
      <p class="text-sm text-gray-600 font-medium">📅 Filtrar por Período:</p>
-     <div class="flex gap-2 flex-wrap">
-      <button class="viagem-filter-btn active text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="month" onclick="setViagemsFilterPeriod(this)">Mês Atual</button> <button class="viagem-filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="week" onclick="setViagemsFilterPeriod(this)">7 dias</button> <button class="viagem-filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="today" onclick="setViagemsFilterPeriod(this)">Hoje</button> <button class="viagem-filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="all" onclick="setViagemsFilterPeriod(this)">Todas</button>
+     <div class="flex gap-2 flex-wrap"><button class="viagem-filter-btn active text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="month" onclick="setViagemsFilterPeriod(this)">Mês Atual</button> <button class="viagem-filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="week" onclick="setViagemsFilterPeriod(this)">7 dias</button> <button class="viagem-filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="today" onclick="setViagemsFilterPeriod(this)">Hoje</button> <button class="viagem-filter-btn text-xs px-3 py-1.5 rounded-full bg-gray-100 font-medium" data-period="all" onclick="setViagemsFilterPeriod(this)">Todas</button>
      </div>
     </div><!-- History -->
     <h3 class="font-bold text-gray-800 mb-2">📚 Histórico de Viagens</h3>
@@ -281,17 +279,19 @@
   <div id="view-settings" class="view px-4 pt-6">
    <h2 class="text-2xl font-bold text-gray-800 mb-4">⚙️ Configurações</h2>
    <div class="bg-white rounded-2xl p-4 shadow-sm space-y-4">
-    <div><label class="text-sm text-gray-500 block mb-1">🎯 Meta Mensal (R$)</label><input id="set-monthly" type="number" class="w-full border border-gray-200 rounded-xl p-2" onchange="saveSettings()">
+    <div>
+     <label class="text-sm text-gray-500 block mb-1">🎯 Meta Mensal (R$)</label><input id="set-monthly" type="number" class="w-full border border-gray-200 rounded-xl p-2" onchange="saveSettings()">
     </div>
-    <div><label class="text-sm text-gray-500 block mb-1">📅 Meta Diária (R$)</label><input id="set-daily" type="number" class="w-full border border-gray-200 rounded-xl p-2" onchange="saveSettings()">
+    <div>
+     <label class="text-sm text-gray-500 block mb-1">📅 Meta Diária (R$)</label><input id="set-daily" type="number" class="w-full border border-gray-200 rounded-xl p-2" onchange="saveSettings()">
     </div>
-    <div><label class="text-sm text-gray-500 block mb-1">👤 Seu Nome</label><input id="set-name" type="text" class="w-full border border-gray-200 rounded-xl p-2" onchange="saveSettings()">
+    <div>
+     <label class="text-sm text-gray-500 block mb-1">👤 Seu Nome</label><input id="set-name" type="text" class="w-full border border-gray-200 rounded-xl p-2" onchange="saveSettings()">
     </div><button onclick="clearAllData()" class="w-full bg-red-50 text-red-600 font-bold py-2 rounded-xl mt-4">🗑️ Limpar Todos os Dados</button>
    </div>
   </div><!-- Bottom Nav -->
   <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 shadow-lg z-30">
-   <div class="grid grid-cols-6 py-2">
-    <button class="nav-item flex flex-col items-center gap-0.5 text-xs tab-active" onclick="switchView('home')"><span class="text-xl">🏠</span>Início</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('vehicle')"><span class="text-xl">🚗</span>Veículos</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('viagens')"><span class="text-xl">📍</span>Viagens</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('finance')"><span class="text-xl">💰</span>Finanças</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('reports')"><span class="text-xl">📊</span>Relatórios</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('settings')"><span class="text-xl">⚙️</span>Config</button>
+   <div class="grid grid-cols-6 py-2"><button class="nav-item flex flex-col items-center gap-0.5 text-xs tab-active" onclick="switchView('home')"><span class="text-xl">🏠</span>Início</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('vehicle')"><span class="text-xl">🚗</span>Veículos</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('viagens')"><span class="text-xl">📍</span>Viagens</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('finance')"><span class="text-xl">💰</span>Finanças</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('reports')"><span class="text-xl">📊</span>Relatórios</button> <button class="nav-item flex flex-col items-center gap-0.5 text-xs text-gray-400" onclick="switchView('settings')"><span class="text-xl">⚙️</span>Config</button>
    </div>
   </nav>
   <script>
@@ -315,8 +315,9 @@ if(!state.closing)state.closing={earnings:[],expenses:[],totalEarnings:0,totalEx
 if(!state.sessionEarnings)state.sessionEarnings=[];
 if(!state.sessionExpenses)state.sessionExpenses=[];
 
-// MIGRATION: Auto-link existing entries to daily reports
+// MIGRATION: Auto-link existing entries to daily reports (only run once)
 function migrateEntriesToDailyReports(){
+  if(state._migrationDone)return; // Prevent running migration multiple times
   state.dailyReports.forEach(dr=>{
     const v=state.vehicles.find(x=>x.id===dr.vehicleId);if(!v)return;
     const drDate=new Date(dr.date||dr.dateISO).toDateString();
@@ -328,8 +329,9 @@ function migrateEntriesToDailyReports(){
     let linkedEarnings=0, linkedExpenses=0;
     state.entries.forEach(e=>{
       const eDate=new Date(e.dateISO||e.date);
-      if(e.vehicleId===dr.vehicleId&&eDate.toDateString()===drDate&&eDate>=drStart&&eDate<drEnd&&!e.expeditionId){
+      if(e.vehicleId===dr.vehicleId&&eDate.toDateString()===drDate&&eDate>=drStart&&eDate<drEnd&&!e.expeditionId&&!e.dailyReportId){
         e.expeditionId=dr.id;
+        e.dailyReportId=dr.id;
         if(e.type==='earning')linkedEarnings+=e.value;
         else linkedExpenses+=e.value;
       }
@@ -342,6 +344,8 @@ function migrateEntriesToDailyReports(){
       dr.profit=(dr.earnings||0)-(dr.expenses||0)-(dr.fuel||0);
     }
   });
+  state._migrationDone=true;
+  save();
 }
 migrateEntriesToDailyReports();
 
@@ -534,7 +538,7 @@ function saveExpense(){
   
   let receiptData='';
   const fileInput=document.getElementById('expense-receipt');
-  if(fileInput.files.length>0){
+  if(fileInput&&fileInput.files&&fileInput.files.length>0){
     const file=fileInput.files[0];
     const reader=new FileReader();
     reader.onload=(e)=>{
@@ -1072,13 +1076,15 @@ function pauseWork(type){state.work.paused=true;state.work.pauseStart=Date.now()
 function resumeWork(){if(state.work.pauseStart)state.work.totalPaused+=Date.now()-state.work.pauseStart;state.work.paused=false;state.work.pauseStart=null;save();updateWorkUI();showToast('▶️ De volta!');}
 function stopWork(){if(state.work.paused&&state.work.pauseStart)state.work.totalPaused+=Date.now()-state.work.pauseStart;state.work={active:false,paused:false,startTime:null,pauseStart:null,totalPaused:0,pauseType:'',vehicleId:null,kmStart:null,kmEnd:null,expeditionId:null};clearInterval(timerInterval);save();updateWorkUI();}
 function showEndDayConfirm(){
-  if(!state.work.vehicleId)return;
+  if(!state.work.active){showToast('⚠️ Nenhum dia de trabalho ativo');return;}
+  if(!state.work.vehicleId){showToast('⚠️ Veículo não selecionado');return;}
   const v=state.vehicles.find(x=>x.id===state.work.vehicleId);
+  if(!v){showToast('⚠️ Veículo não encontrado');return;}
   openDayClosingModal();
 }
 
 function openDayClosingModal(){
-  const v=state.vehicles.find(x=>x.id===state.work.vehicleId);if(!v)return;
+  const v=state.vehicles.find(x=>x.id===state.work.vehicleId);if(!v){showToast('⚠️ Veículo não encontrado');return;}
   const startTime=new Date(state.work.startTime);
   const endTime=new Date();
   const total=endTime-startTime-state.work.totalPaused;
@@ -1102,11 +1108,10 @@ function openDayClosingModal(){
       <div><span class="text-gray-600">🕐 Início:</span><br><span class="font-bold">${startTime.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</span></div>
       <div><span class="text-gray-600">🕑 Término:</span><br><span class="font-bold">${endTime.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</span></div>
       <div><span class="text-gray-600">⏱ Tempo Trabalhado:</span><br><span class="font-bold">${formatMs(total)}</span></div>
-      <div><span class="text-gray-600">⏸ Pausas:</span><br><span class="font-bold">${dayEntries.length}</span></div>
       <div><span class="text-gray-600">📍 KM Inicial:</span><br><span class="font-bold">${(state.work.kmStart||0).toLocaleString('pt-BR')}</span></div>
       <div><span class="text-gray-600">📍 KM Rodados:</span><br><span class="font-bold" id="closing-km-driven">--</span></div>
     </div>
-    <div class="mt-2"><label class="text-xs text-gray-600 block mb-1">📍 KM Final *</label><input id="closing-km-end" type="number" class="w-full border-2 border-blue-300 rounded-lg p-2 text-sm font-bold" value="${v.km||0}" oninput="updateClosingKmDriven()"></div>
+    <div class="mt-2"><label class="text-xs text-gray-600 block mb-1">📍 KM Final *</label><input id="closing-km-end" type="number" class="w-full border-2 border-blue-300 rounded-lg p-2 text-sm font-bold" value="${v.km||0}" oninput="updateClosingDisplay()"></div>
   </div>`;
   
   // SEÇÃO 2: RECEITAS DO DIA
@@ -1127,11 +1132,11 @@ function openDayClosingModal(){
   // SEÇÃO 5: COMBUSTÍVEL (MODO MANUAL)
   html+=`<div class="bg-yellow-50 rounded-xl p-3"><h3 class="font-bold text-sm mb-2">⛽ Configurar Combustível</h3>
     <label class="flex items-center gap-2 text-xs mb-2">
-      <input id="closing-fuel-auto" type="checkbox" checked onchange="toggleClosingFuelMode()"> Usar cálculo automático
+      <input id="closing-fuel-auto" type="checkbox" checked onchange="updateClosingDisplay()"> Usar cálculo automático
     </label>
     <div id="closing-fuel-manual" class="hidden">
       <label class="text-xs text-gray-600 block mb-1">Valor real gasto (R$)</label>
-      <input id="closing-fuel-manual-value" type="number" step="0.01" class="w-full border border-gray-200 rounded-lg p-1.5 text-xs" oninput="updateClosingFuelCost()">
+      <input id="closing-fuel-manual-value" type="number" step="0.01" class="w-full border border-gray-200 rounded-lg p-1.5 text-xs" oninput="updateClosingDisplay()">
     </div>
   </div>`;
   
@@ -1162,8 +1167,7 @@ function openDayClosingModal(){
   content.innerHTML=html;
   modal.classList.add('active');
   
-  // Initialize closing state
-  state.closing={earnings:dayEarnings,expenses:dayExpenses,totalEarnings,totalExpenses};
+  // Initialize closing display
   updateClosingDisplay();
 }
 
@@ -1212,9 +1216,9 @@ function updateClosingDisplay(){
     document.getElementById('closing-fuel-consumption-cost').textContent='R$ 0,00';
   }
   
-  // Calculate totals
-  const totalEarnings=state.closing.earnings.reduce((s,e)=>s+e.value,0);
-  const totalExpenses=state.closing.expenses.reduce((s,e)=>s+e.value,0);
+  // Calculate totals from SESSION arrays only
+  const totalEarnings=state.sessionEarnings.reduce((s,e)=>s+e.value,0);
+  const totalExpenses=state.sessionExpenses.reduce((s,e)=>s+e.value,0);
   const operationalFactor=v.costKm||0.1;
   const reserve=totalEarnings*operationalFactor;
   const netProfit=totalEarnings-totalExpenses-fuelCost-reserve;
@@ -1231,11 +1235,7 @@ function updateClosingDisplay(){
   renderClosingExpenses();
 }
 
-function toggleClosingFuelMode(){
-  document.getElementById('closing-fuel-manual').classList.toggle('hidden',document.getElementById('closing-fuel-auto').checked);
-  updateClosingDisplay();
-}
-function updateClosingFuelCost(){updateClosingDisplay();}
+function updateClosingKmDriven(){updateClosingDisplay();}
 
 function renderClosingEarnings(){
   const list=document.getElementById('closing-earnings-list');
@@ -1333,7 +1333,6 @@ function addClosingEarning(){
   
   state.sessionEarnings.push(entry);
   state.entries.push(entry);
-  state.closing.earnings.push(entry);
   save();openDayClosingModal();
 }
 
@@ -1363,7 +1362,6 @@ function addClosingExpense(){
   
   state.sessionExpenses.push(entry);
   state.entries.push(entry);
-  state.closing.expenses.push(entry);
   save();openDayClosingModal();
 }
 
@@ -1372,13 +1370,10 @@ function confirmDayClosing(){
   if(!kmEnd||kmEnd<state.work.kmStart){showToast('⚠️ KM final inválido');return;}
   
   state.work.kmEnd=Math.round(kmEnd*100)/100;
-  // Complete the finishWorkDay function with session data
-  if(!state.work.active)return;
-  if(state.work.paused&&state.work.pauseStart)state.work.totalPaused+=Date.now()-state.work.pauseStart;
+  const v=state.vehicles.find(x=>x.id===state.work.vehicleId);
   const productive=Date.now()-state.work.startTime-state.work.totalPaused;
   const today=new Date().toDateString();
   const vehicleId=state.work.vehicleId;
-  const v=state.vehicles.find(x=>x.id===vehicleId);
   const kmStart=state.work.kmStart||0;
   const kmEnd_val=state.work.kmEnd||kmStart;
   const kmDriven=Math.max(0,kmEnd_val-kmStart);
@@ -1452,7 +1447,7 @@ function confirmDayClosing(){
   state.sessionEarnings=[];
   state.sessionExpenses=[];
   state.work={active:false,paused:false,startTime:null,pauseStart:null,totalPaused:0,pauseType:'',vehicleId:null,kmStart:null,kmEnd:null,expeditionId:null};
-  clearInterval(timerInterval);save();updateWorkUI();updateGoals();closeModal();showToast('✅ Dia finalizado!');
+  clearInterval(timerInterval);save();updateWorkUI();updateGoals();updateFinance();closeModal();showToast('✅ Dia finalizado com sucesso!');switchView('home');
 }
 function finishWorkDay(){
   if(!state.work.active)return;
@@ -2016,7 +2011,7 @@ function renderReports(){
         return;
       }
       const label=e.type==='earning'?'💰 Entrada':'💸 Saída';
-      allRecords.push({...e,_type:t,_date:d,_label:label,_value:e.value,_searchText:`${e.dateISO||e.date} ${e.incomeType||e.expenseType||''} ${e.incomeCustomName||e.expenseCustomName||''} ${e.value}`});
+      allRecords.push({...e,_type:e.type,_date:d,_label:label,_value:e.value,_searchText:`${e.dateISO||e.date} ${e.incomeType||e.expenseType||''} ${e.incomeCustomName||e.expenseCustomName||''} ${e.value}`});
     }
   });
 
@@ -2689,5 +2684,5 @@ document.getElementById('work-btn').addEventListener('pointerleave',()=>clearTim
 
 init();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a148a46920bc27e7',t:'MTc4Mjk0Mjc5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a14d2f2e90526d4b',t:'MTc4Mjk5MDQyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
